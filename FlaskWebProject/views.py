@@ -5,7 +5,6 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from FlaskWebProject import app
-import FlaskWebProject.api_put as api_put
 
 @app.route('/')
 @app.route('/home')
@@ -36,10 +35,3 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
-
-@app.route('/api/<endpoint>')
-def api(endpoint):
-    """Responds to api requests"""
-    if endpoint == "put":
-        return api_put.api_put(None)
-
